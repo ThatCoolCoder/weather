@@ -1,0 +1,10 @@
+{
+    "repository": "https://github.com/Dav1dde/glad",
+    "include": [
+        "/glad",
+        "/CMakeLists.txt",
+        "/setup.py"
+    ],
+    "^current_version": "71b2aa61f1f0ae94be5f2a7674275966aa15f8ad",
+    "^sparse_checkout_list": " \"/glad\" \"/CMakeLists.txt\" \"/setup.py\""
+}

@@ -1,0 +1,11 @@
+{
+    "repository": "https://github.com/glfw/glfw/",
+    "include": [
+        "/include",
+        "/src",
+        "/CMake",
+        "/CMakeLists.txt"
+    ],
+    "^current_version": "3.3.4",
+    "^sparse_checkout_list": " \"/include\" \"/src\" \"/CMake\" \"/CMakeLists.txt\""
+}
