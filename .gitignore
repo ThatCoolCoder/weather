@@ -1,4 +1,5 @@
 build/
+yacpkgs/
 
 CMakeLists.txt.user
 CMakeCache.txt
