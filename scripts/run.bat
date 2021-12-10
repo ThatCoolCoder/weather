@@ -1,1 +1,0 @@
-.\scripts\build.bat && cd .. && .\build\bin\weather.exe
