@@ -1,4 +1,4 @@
-package com.thatcoolcoder.weatherApp;
+package com.thatcoolcoder.weather.weatherApp;
 
 import javax.swing.*;
 
@@ -11,6 +11,9 @@ public class WeatherApp extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500, 500);
         add(mainPanel);
+
+        TopBar topBar = new TopBar();
+        add(topBar);
 
         JLabel label = new JLabel();
         label.setText("Yay swing is working");

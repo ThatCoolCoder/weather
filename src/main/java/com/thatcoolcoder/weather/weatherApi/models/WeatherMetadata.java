@@ -1,4 +1,4 @@
-package com.thatcoolcoder.weatherApi.models;
+package com.thatcoolcoder.weather.weatherApi.models;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

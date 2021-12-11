@@ -1,10 +1,10 @@
-package com.thatcoolcoder.weatherApp;
+package com.thatcoolcoder.weather.weatherApp;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import com.thatcoolcoder.weatherApi.*;
-import com.thatcoolcoder.weatherApi.models.WeatherSnapshot;
+import com.thatcoolcoder.weather.weatherApi.*;
+import com.thatcoolcoder.weather.weatherApi.models.WeatherSnapshot;
 
 public class Main 
 {

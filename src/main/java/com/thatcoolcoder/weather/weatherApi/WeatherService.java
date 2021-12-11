@@ -1,4 +1,4 @@
-package com.thatcoolcoder.weatherApi;
+package com.thatcoolcoder.weather.weatherApi;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -6,9 +6,9 @@ import java.net.URI;
 import java.net.http.*;
 import java.net.http.HttpResponse.*;
 
-import com.thatcoolcoder.common.*;
-import com.thatcoolcoder.weatherApi.models.WeatherMetadata;
-import com.thatcoolcoder.weatherApi.models.WeatherSnapshot;
+import com.thatcoolcoder.weather.common.*;
+import com.thatcoolcoder.weather.weatherApi.models.WeatherMetadata;
+import com.thatcoolcoder.weather.weatherApi.models.WeatherSnapshot;
 
 import org.json.*;
 
