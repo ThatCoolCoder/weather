@@ -1,1 +1,1 @@
-java -cp target/weather-1.0-SNAPSHOT.jar com.thatcoolcoder.weather.Weather
+java -cp target/weather-1.0-SNAPSHOT-jar-with-dependencies.jar com.thatcoolcoder.weatherApp.Main
