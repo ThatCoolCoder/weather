@@ -52,6 +52,16 @@ public class PromptTextField extends JTextField implements KeyListener
 
     public void keyPressed(KeyEvent e)
     {
+        // Method is not needed but must include it to implement KeyListener
+    }
+
+    public void keyReleased(KeyEvent e)
+    {
+        // Method is not needed but must include it to implement KeyListener
+    }
+
+    public void keyTyped(KeyEvent e)
+    {
         if (getText().isEmpty() && ! isShowingPrompt)
         {
             isShowingPrompt = true;
@@ -62,15 +72,6 @@ public class PromptTextField extends JTextField implements KeyListener
             setText("");
             isShowingPrompt = false;
         }
-    }
-
-    public void keyReleased(KeyEvent e)
-    {
-        // Method is not needed but must include it to implement KeyListener
-    }
-
-    public void keyTyped(KeyEvent e)
-    {
         if (isShowingPrompt)
         {
             setText(promptText);
