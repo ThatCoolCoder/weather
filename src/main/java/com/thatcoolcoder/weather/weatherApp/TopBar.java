@@ -1,5 +1,6 @@
 package com.thatcoolcoder.weather.weatherApp;
 
+import java.util.function.*;
 import javax.swing.*;
 import java.awt.event.*;
 
@@ -8,7 +9,7 @@ import com.thatcoolcoder.weather.common.*;
 public class TopBar extends JPanel {
     JTextField locationInput;
 
-    public TopBar(CallbackWithValue<String> showWeatherAction)
+    public TopBar(Consumer<String> showWeatherAction)
     {
         super();
 
@@ -20,7 +21,7 @@ public class TopBar extends JPanel {
         {
             public void actionPerformed(ActionEvent e)
             {
-                showWeatherAction.Call(locationInput.getText());
+                showWeatherAction.accept(locationInput.getText());
             }
         });
         add(searchButton);

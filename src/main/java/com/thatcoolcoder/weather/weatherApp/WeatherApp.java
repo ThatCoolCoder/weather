@@ -19,12 +19,7 @@ public class WeatherApp extends JFrame {
         setSize(500, 500);
         
         this.weatherService = weatherService;
-        TopBar topBar = new TopBar(new CallbackWithValue<String>() {
-            @Override
-            public void OnCalled(String value) {
-                showWeather(value);
-            }
-        });
+        TopBar topBar = new TopBar((String location) -> showWeather(location));
         add(topBar, BorderLayout.NORTH);
         add(weatherDisplayPanel, BorderLayout.CENTER);
     }
