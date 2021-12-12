@@ -7,8 +7,7 @@ import java.net.http.*;
 import java.net.http.HttpResponse.*;
 
 import com.thatcoolcoder.weather.common.*;
-import com.thatcoolcoder.weather.weatherApi.models.WeatherMetadata;
-import com.thatcoolcoder.weather.weatherApi.models.WeatherSnapshot;
+import com.thatcoolcoder.weather.weatherApi.models.*;
 
 import org.json.*;
 
