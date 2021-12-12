@@ -1,6 +1,7 @@
 package com.thatcoolcoder.weather.weatherApp;
 
 import javax.swing.*;
+import java.awt.event.*;
 import java.awt.BorderLayout;
 import java.io.IOException;
 
@@ -22,10 +23,47 @@ public class WeatherApp extends JFrame {
         TopBar topBar = new TopBar((String location) -> showWeather(location));
         add(topBar, BorderLayout.NORTH);
         add(weatherDisplayPanel, BorderLayout.CENTER);
+
+        addWindowListener(new WindowAdapter()
+        {
+            public void windowClosing(WindowEvent we)
+            {
+                try
+                {
+                    Config.save();
+                }
+                catch (Exception e)
+                {
+                    // do nothing - saving config is not a major error
+                }
+            }
+
+            public void windowOpened(WindowEvent we)
+            {
+                onWindowOpened();
+            }
+        });
     }
 
-    public void showWeather(String location)
+    private void onWindowOpened()
     {
+        if (Config.current.weatherApiKey.isEmpty())
+        {
+            getWeatherApiKey();
+        }
+        
+        showWeather(Config.current.locationLastVisited);
+    }
+
+    private void getWeatherApiKey()
+    {
+        Config.current.weatherApiKey = JOptionPane.showInputDialog(this, "Enter a valid API key for weatherapi.com");
+        weatherService.apiKey = Config.current.weatherApiKey;
+    }
+
+    private void showWeather(String location)
+    {
+        Config.current.locationLastVisited = location;
         try
         {
             WeatherSnapshot weatherSnapshot = weatherService.getCurrentWeather(location);

@@ -13,7 +13,7 @@ import org.json.*;
 
 public class WeatherService 
 {
-    private String apiKey;
+    public String apiKey;
     private String apiPrefix = "http://api.weatherapi.com/v1/";
     private HttpClient httpClient;
 

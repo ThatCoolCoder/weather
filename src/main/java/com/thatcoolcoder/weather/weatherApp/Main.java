@@ -11,14 +11,14 @@ public class Main
     {
         try
         {
-            String apiKey = Files.readString(Path.of("weatherApiKey.txt"));
-            WeatherService weatherService = new WeatherService(apiKey);
+            Config.load();
+            WeatherService weatherService = new WeatherService(Config.current.weatherApiKey);
             WeatherApp app = new WeatherApp(weatherService);
             app.setVisible(true);
         }
-        catch (Exception e)
+        catch (Config.ConfigSaveException e)
         {
-            System.out.println("Error starting application");
+            System.err.println("Config error: " + e.getMessage());
         }
     }
 }

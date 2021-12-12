@@ -10,7 +10,7 @@ import com.thatcoolcoder.weather.weatherApi.models.WeatherSnapshot;
 public class WeatherDisplayPanel extends JPanel {
     ArrayList<WeatherDisplayRow> rows = new ArrayList<WeatherDisplayRow>() {{
         add(new WeatherDisplayRow((ws) -> {
-            return String.format("Weather for %s", ws.metadata.name);
+            return String.format("Weather for %s, %s, %s", ws.metadata.name, ws.metadata.region, ws.metadata.country);
         }));
         // add(new WeatherDisplayRow((ws) -> {
         //     return String.format("Local time is %tc", ws.metadata.dateTime);

@@ -41,6 +41,12 @@
           <descriptorRefs>
             <descriptorRef>jar-with-dependencies</descriptorRef>
           </descriptorRefs>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <mainClass>com.thatcoolcoder.weather.weatherApp.Main</mainClass>
+            </manifest>
+          </archive>
         </configuration>
         <executions>
           <execution>
@@ -73,6 +79,14 @@
       <plugin>
         <artifactId>maven-jar-plugin</artifactId>
         <version>3.0.2</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <mainClass>com.thatcoolcoder.weather.weatherApp.Main</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-install-plugin</artifactId>
