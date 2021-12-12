@@ -17,13 +17,17 @@ public class TopBar extends JPanel {
         add(locationInput);
 
         JButton searchButton = new JButton("Go!");
-        searchButton.addActionListener(new ActionListener()
+        add(searchButton);
+
+        Action searchAction = new AbstractAction()
         {
+            @Override
             public void actionPerformed(ActionEvent e)
             {
                 showWeatherAction.accept(locationInput.getText());
             }
-        });
-        add(searchButton);
+        };
+        locationInput.addActionListener(searchAction);
+        searchButton.addActionListener(searchAction);
     }
 }
