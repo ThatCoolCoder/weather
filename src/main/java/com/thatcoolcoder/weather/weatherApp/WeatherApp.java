@@ -26,7 +26,7 @@ public class WeatherApp extends JFrame {
             }
         });
         add(topBar, BorderLayout.NORTH);
-        add(weatherDisplayPanel);
+        add(weatherDisplayPanel, BorderLayout.CENTER);
     }
 
     public void showWeather(String location)
