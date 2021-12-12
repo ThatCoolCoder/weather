@@ -2,6 +2,7 @@ package com.thatcoolcoder.weather.weatherApp;
 
 import javax.swing.*;
 import java.awt.BorderLayout;
+import java.io.IOException;
 
 import com.thatcoolcoder.weather.common.*;
 import com.thatcoolcoder.weather.weatherApi.*;
@@ -13,7 +14,6 @@ public class WeatherApp extends JFrame {
 
     public WeatherApp(WeatherService weatherService)
     {
-        
         super("Weather App");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500, 500);
@@ -29,16 +29,15 @@ public class WeatherApp extends JFrame {
         try
         {
             WeatherSnapshot weatherSnapshot = weatherService.getCurrentWeather(location);
-            System.out.println(weatherSnapshot.metadata.name);
             weatherDisplayPanel.showWeather(weatherSnapshot);
+        }
+        catch (IOException | InterruptedException e)
+        {
+            UIUtils.showException(this, e, "fetching weather data");
         }
         catch (Exception e)
         {
-            System.out.println(e.getMessage());
-            JOptionPane.showMessageDialog(this,
-                "Unexpected error fetching weather data",
-                "Error",
-                JOptionPane.ERROR_MESSAGE);
+            UIUtils.showException(this, e, "displaying weather data");
         }
     }
 }
