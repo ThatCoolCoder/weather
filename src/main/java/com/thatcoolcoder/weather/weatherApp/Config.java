@@ -13,6 +13,7 @@ public class Config {
 
     public String weatherApiKey = "";
     public String locationLastVisited = "New York";
+    public boolean autoOpenLastLocation = true;
 
     // Relative to home directory
     private static String configFileName = ".tccweather.json";
@@ -46,6 +47,7 @@ public class Config {
             current = new Config();
             current.weatherApiKey = json.getString("weatherApiKey");
             current.locationLastVisited = json.getString("locationLastVisited");
+            current.autoOpenLastLocation = json.getBoolean("autoOpenLastLocation");
         }
         catch (IOException | JSONException e)
         {
@@ -63,6 +65,7 @@ public class Config {
         JSONObject json = new JSONObject();
         json.put("weatherApiKey", current.weatherApiKey);
         json.put("locationLastVisited", current.locationLastVisited);
+        json.put("autoOpenLastLocation", current.autoOpenLastLocation);
 
         try
         {

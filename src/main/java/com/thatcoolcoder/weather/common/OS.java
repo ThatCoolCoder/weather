@@ -7,9 +7,9 @@ public class OS
         WINDOWS, LINUX, MAC, OTHER
     }
 
-    private OSType os = null;
+    private static OSType os = null;
 
-    public OSType getOS()
+    public static OSType getOS()
     {
         if (os == null)
         {

@@ -13,4 +13,13 @@ public class UIUtils
             "Error",
             JOptionPane.ERROR_MESSAGE);
     }
+
+    public static void showException(JFrame component, String message)
+    {
+        // context is something like "fetching weather data"
+        JOptionPane.showMessageDialog(component,
+            message,
+            "Error",
+            JOptionPane.ERROR_MESSAGE);
+    }
 }

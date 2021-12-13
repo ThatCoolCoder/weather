@@ -8,6 +8,7 @@ import java.net.http.HttpResponse.*;
 
 import com.thatcoolcoder.weather.common.*;
 import com.thatcoolcoder.weather.weatherApi.models.*;
+import com.thatcoolcoder.weather.weatherApi.exceptions.*;
 
 import org.json.*;
 
@@ -23,9 +24,10 @@ public class WeatherService
         httpClient = HttpClient.newHttpClient();
     }
 
-    public WeatherSnapshot getCurrentWeather(String locationName) throws IOException, InterruptedException
+    public WeatherSnapshot getCurrentWeather(String locationName) throws IOException, InterruptedException,
+        InvalidLocation, InvalidResponse, InvalidApiKey
     {
-        String url = apiPrefix + "current.json?key=" + apiKey +
+        String url = apiPrefix + "current.json?key=" + Utils.urlEncode(apiKey) +
             "&q=" + Utils.urlEncode(locationName);
         HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create(url))
@@ -35,10 +37,30 @@ public class WeatherService
         JSONTokener tokener = new JSONTokener(
             new ByteArrayInputStream(response.body().getBytes()));
 
-        JSONObject json = new JSONObject(tokener);
-        WeatherSnapshot w = WeatherSnapshot.fromJson(json.getJSONObject("current"));
-        w.metadata = WeatherMetadata.fromJson(json.getJSONObject("location"));
-        return w;
+        try
+        {
+            JSONObject json = new JSONObject(tokener);
+            if (json.has("error"))
+            {
+                int errorCode = json.getJSONObject("error").getInt("code");
+                switch (errorCode)
+                {
+                    case 1006:
+                        throw new InvalidLocation(locationName);
+                    case 1002:
+                    case 2006:
+                        throw new InvalidApiKey();
+                }
+            }
+
+            WeatherSnapshot w = WeatherSnapshot.fromJson(json.getJSONObject("current"));
+            w.metadata = WeatherMetadata.fromJson(json.getJSONObject("location"));
+            return w;
+        }
+        catch (JSONException e)
+        {
+            throw new InvalidResponse(e);
+        }
     }
 
     
