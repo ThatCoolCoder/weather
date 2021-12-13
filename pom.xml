@@ -6,7 +6,7 @@
 
   <groupId>com.thatcoolcoder.weather</groupId>
   <artifactId>weather</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.0</version>
 
   <name>weather</name>
   <url>https://www.naltonsoftware.com</url>

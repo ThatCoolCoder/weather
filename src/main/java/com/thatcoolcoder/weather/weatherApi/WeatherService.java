@@ -25,7 +25,7 @@ public class WeatherService
     }
 
     public WeatherSnapshot getCurrentWeather(String locationName) throws IOException, InterruptedException,
-        InvalidLocation, InvalidResponse, InvalidApiKey, NoLocationProvided
+        InvalidLocationException, InvalidResponseException, InvalidApiKeyException, NoLocationProvidedException
     {
         String url = apiPrefix + "current.json?key=" + Utils.urlEncode(apiKey) +
             "&q=" + Utils.urlEncode(locationName);
@@ -46,12 +46,12 @@ public class WeatherService
                 switch (errorCode)
                 {
                     case 1006:
-                        throw new InvalidLocation(locationName);
+                        throw new InvalidLocationException(locationName);
                     case 1002:
                     case 2006:
-                        throw new InvalidApiKey();
+                        throw new InvalidApiKeyException();
                     case 1003:
-                        throw new NoLocationProvided();
+                        throw new NoLocationProvidedException();
                 }
             }
 
@@ -61,7 +61,7 @@ public class WeatherService
         }
         catch (JSONException e)
         {
-            throw new InvalidResponse(e);
+            throw new InvalidResponseException(e);
         }
     }
 

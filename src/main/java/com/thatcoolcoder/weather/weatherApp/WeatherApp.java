@@ -8,8 +8,9 @@ import java.io.IOException;
 import com.thatcoolcoder.weather.common.*;
 import com.thatcoolcoder.weather.common.OS.OSType;
 import com.thatcoolcoder.weather.weatherApi.*;
-import com.thatcoolcoder.weather.weatherApi.exceptions.InvalidApiKey;
-import com.thatcoolcoder.weather.weatherApi.exceptions.NoLocationProvided;
+import com.thatcoolcoder.weather.weatherApi.exceptions.InvalidApiKeyException;
+import com.thatcoolcoder.weather.weatherApi.exceptions.InvalidLocationException;
+import com.thatcoolcoder.weather.weatherApi.exceptions.NoLocationProvidedException;
 import com.thatcoolcoder.weather.weatherApi.models.WeatherSnapshot;
 
 public class WeatherApp extends JFrame {
@@ -30,6 +31,14 @@ public class WeatherApp extends JFrame {
 
         addWindowListener(new WindowAdapter()
         {
+            public void windowOpened(WindowEvent we)
+            {
+                if (Config.current.autoOpenLastLocation && ! Config.current.locationLastVisited.isEmpty())
+                {
+                    showWeather(Config.current.locationLastVisited);
+                }
+            }
+
             public void windowClosing(WindowEvent we)
             {
                 try
@@ -39,14 +48,6 @@ public class WeatherApp extends JFrame {
                 catch (Exception e)
                 {
                     // do nothing - saving config is not a major error
-                }
-            }
-
-            public void windowOpened(WindowEvent we)
-            {
-                if (Config.current.autoOpenLastLocation)
-                {
-                    showWeather(Config.current.locationLastVisited);
                 }
             }
         });
@@ -86,11 +87,7 @@ public class WeatherApp extends JFrame {
             WeatherSnapshot weatherSnapshot = weatherService.getCurrentWeather(location);
             weatherDisplayPanel.showWeather(weatherSnapshot);
         }
-        catch (IOException | InterruptedException e)
-        {
-            UIUtils.showException(this, e, "fetching weather data");
-        }
-        catch (InvalidApiKey e)
+        catch (InvalidApiKeyException e)
         {
             if (Config.current.weatherApiKey.isEmpty())
             {
@@ -101,13 +98,17 @@ public class WeatherApp extends JFrame {
                 UIUtils.showException(this, "Invalid API key.");
             }
         }
-        catch (NoLocationProvided e)
+        catch (NoLocationProvidedException e)
         {
             // do nothing
         }
+        catch (InvalidLocationException e)
+        {
+            UIUtils.showException(this, e.getMessage());
+        }
         catch (Exception e)
         {
-            UIUtils.showException(this, e, "displaying weather data");
+            UIUtils.showException(this, e, "fetching weather data");
         }
     }
 }

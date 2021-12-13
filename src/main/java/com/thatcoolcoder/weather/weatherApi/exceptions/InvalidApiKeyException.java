@@ -1,7 +1,7 @@
 package com.thatcoolcoder.weather.weatherApi.exceptions;
 
-public class InvalidApiKey extends Exception {
-    public InvalidApiKey()
+public class InvalidApiKeyException extends Exception {
+    public InvalidApiKeyException()
     {
         super("API key is invalid");
     }

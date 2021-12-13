@@ -1,7 +1,7 @@
 package com.thatcoolcoder.weather.weatherApi.exceptions;
 
-public class InvalidLocation extends Exception {
-    public InvalidLocation(String locationName)
+public class InvalidLocationException extends Exception {
+    public InvalidLocationException(String locationName)
     {
         super(String.format("No location matching the name \"%s\" was found", locationName));
     }
