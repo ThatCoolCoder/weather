@@ -73,5 +73,6 @@ public class SettingsPopup extends JDialog {
         add(cancelButton, c);
 
         pack();
+        setResizable(false);
     }
 }

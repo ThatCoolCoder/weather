@@ -9,6 +9,7 @@ import com.thatcoolcoder.weather.common.*;
 import com.thatcoolcoder.weather.common.OS.OSType;
 import com.thatcoolcoder.weather.weatherApi.*;
 import com.thatcoolcoder.weather.weatherApi.exceptions.InvalidApiKey;
+import com.thatcoolcoder.weather.weatherApi.exceptions.NoLocationProvided;
 import com.thatcoolcoder.weather.weatherApi.models.WeatherSnapshot;
 
 public class WeatherApp extends JFrame {
@@ -99,6 +100,10 @@ public class WeatherApp extends JFrame {
             {
                 UIUtils.showException(this, "Invalid API key.");
             }
+        }
+        catch (NoLocationProvided e)
+        {
+            // do nothing
         }
         catch (Exception e)
         {

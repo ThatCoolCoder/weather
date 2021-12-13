@@ -40,6 +40,19 @@ public class PromptTextField extends JTextField implements KeyListener
         setText(promptText);
     }
 
+    @Override
+    public String getText()
+    {
+        if (isShowingPrompt)
+        {
+            return "";
+        }
+        else
+        {
+            return super.getText();
+        }
+    }
+
     public String getPromptText()
     {
         return promptText;
