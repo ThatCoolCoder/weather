@@ -8,6 +8,8 @@ public class WeatherSnapshot {
     // Snapshot of weather at a particular time and location
     // For info on units used, see README
 
+    public String condition;
+    public String conditionIconUrl;
     public float temperature;
     public float temperatureFeelsLike;
     public float windSpeed;
@@ -48,6 +50,8 @@ public class WeatherSnapshot {
         // as due to the data from the API, this is not accessible from this json
 
         WeatherSnapshot w = new WeatherSnapshot();
+        w.condition = json.getJSONObject("condition").getString("text");
+        w.conditionIconUrl = "https:" + json.getJSONObject("condition").getString("icon");
         w.temperature = json.getFloat("temp_c");
         w.temperatureFeelsLike = json.getFloat("feelslike_c");
         w.windSpeed = json.getFloat("wind_kph");

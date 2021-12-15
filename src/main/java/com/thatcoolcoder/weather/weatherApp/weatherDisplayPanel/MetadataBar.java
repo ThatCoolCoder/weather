@@ -9,40 +9,31 @@ import java.awt.*;
 import com.thatcoolcoder.weather.weatherApi.models.*;
 import com.thatcoolcoder.weather.weatherApp.Fonts;
 
-public class HeadingBar extends JPanel implements WeatherDisplayer {
-    private JLabel heading;
+public class MetadataBar extends JPanel implements WeatherDisplayer {
     private JLabel coordinates;
     private JLabel lastUpdated;
 
-    public HeadingBar()
+    public MetadataBar()
     {
         super();
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        heading = new JLabel();
-        heading.setFont(Fonts.heading2);
-        add(heading);
-
         add(Box.createRigidArea(new DimensionUIResource(0, 5)));
 
         coordinates = new JLabel();
-        coordinates.setFont(Fonts.text);
+        coordinates.setFont(Fonts.subtext);
         add(coordinates);
         
         add(Box.createRigidArea(new DimensionUIResource(0, 5)));
 
         lastUpdated = new JLabel();
-        lastUpdated.setFont(Fonts.text);
+        lastUpdated.setFont(Fonts.subtext);
         add(lastUpdated);
     }
 
     public void displayWeather(WeatherSnapshot snapshot)
     {
-        heading.setText(String.format("Weather for %s, %s, %s",
-            snapshot.metadata.location,
-            snapshot.metadata.region,
-            snapshot.metadata.country));
         coordinates.setText(String.format(
             "Latitude: %.3f    Longitude: %.3f",
             snapshot.metadata.latitude,

@@ -7,8 +7,10 @@ import javax.swing.plaf.InsetsUIResource;
 import java.awt.*;
 
 import com.thatcoolcoder.weather.weatherApi.models.*;
+import com.thatcoolcoder.weather.weatherApp.Fonts;
 
 public class WeatherDisplayPanel extends JPanel implements WeatherDisplayer {
+    private JLabel locationHeading;
     private ArrayList<WeatherDisplayer> weatherPanelSections =
         new ArrayList<WeatherDisplayer>();
 
@@ -17,22 +19,46 @@ public class WeatherDisplayPanel extends JPanel implements WeatherDisplayer {
         setLayout(new GridBagLayout());
         InsetsUIResource layoutInsets = new InsetsUIResource(5, 5, 5, 5);
 
-        HeadingBar headingBar = new HeadingBar();
-        weatherPanelSections.add(headingBar);
-        add(headingBar, new GridBagConstraints() {{
+        locationHeading = new JLabel();
+        locationHeading.setFont(Fonts.heading2);
+        add(locationHeading, new GridBagConstraints() {{
             gridx = 0;
             gridy = 0;
-            gridwidth = 12;
+            gridwidth = 1;
             anchor = GridBagConstraints.NORTH;
+            insets = layoutInsets;
+        }});
+
+        SummaryPanel summaryPanel = new SummaryPanel();
+        weatherPanelSections.add(summaryPanel);
+        add(summaryPanel, new GridBagConstraints() {{
+            gridx = 0;
+            gridy = 1;
+            gridwidth = 1;
+            anchor = GridBagConstraints.NORTH;
+            insets = layoutInsets;
+        }});
+
+        MetadataBar metadataBar = new MetadataBar();
+        weatherPanelSections.add(metadataBar);
+        add(metadataBar, new GridBagConstraints() {{
+            gridx = 0;
+            gridy = 2;
+            gridwidth = 1;
             weighty = 1;
+            anchor = GridBagConstraints.NORTH;
             insets = layoutInsets;
         }});
     }
 
-    public void displayWeather(WeatherSnapshot weatherSnapshot) {
+    public void displayWeather(WeatherSnapshot snapshot) {
+        locationHeading.setText(String.format("Weather for %s, %s, %s",
+            snapshot.metadata.location,
+            snapshot.metadata.region,
+            snapshot.metadata.country));
         for (WeatherDisplayer section : weatherPanelSections)
         {
-            section.displayWeather(weatherSnapshot);
+            section.displayWeather(snapshot);
         }
     }
 }
