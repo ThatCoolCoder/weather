@@ -2,9 +2,9 @@ package com.thatcoolcoder.weather.weatherApp.weatherDisplayPanel;
 
 import com.thatcoolcoder.weather.weatherApi.models.WeatherSnapshot;
 import com.thatcoolcoder.weather.weatherApp.Fonts;
+import com.thatcoolcoder.weather.weatherApp.UIUtils;
 
 import javax.swing.*;
-import javax.imageio.*;
 import java.awt.*;
 import javax.swing.plaf.InsetsUIResource;
 import java.net.URL;
@@ -18,6 +18,7 @@ public class SummaryPanel extends JPanel implements WeatherDisplayer {
     public SummaryPanel()
     {
         setLayout(new GridBagLayout());
+        setBorder(UIUtils.createTitledBorder("Summary"));
         InsetsUIResource layoutInsets = new InsetsUIResource(5, 5, 5, 5);
 
         conditionIcon = new JLabel();
@@ -30,12 +31,13 @@ public class SummaryPanel extends JPanel implements WeatherDisplayer {
         }});
 
         condition = new JLabel();
-        condition.setFont(Fonts.heading3);
+        condition.setFont(Fonts.heading2);
         add(condition, new GridBagConstraints() {{
             gridx = 2;
             gridy = 0;
             gridwidth = 1;
             insets = layoutInsets;
+            anchor = GridBagConstraints.WEST;
         }});
 
         temperature = new JLabel();
@@ -44,15 +46,18 @@ public class SummaryPanel extends JPanel implements WeatherDisplayer {
             gridx = 2;
             gridy = 1;
             insets = layoutInsets;
+            anchor = GridBagConstraints.WEST;
         }});
 
         temperatureFeelsLike = new JLabel();
         temperatureFeelsLike.setFont(Fonts.text);
+        temperatureFeelsLike.setAlignmentX(0);
         add(temperatureFeelsLike, new GridBagConstraints() {{
             gridx = 2;
             gridy = 2;
             gridwidth = 2;
             insets = layoutInsets;
+            anchor = GridBagConstraints.WEST;
         }});
     }
 

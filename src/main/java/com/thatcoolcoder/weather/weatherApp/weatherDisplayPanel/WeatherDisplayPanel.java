@@ -20,11 +20,11 @@ public class WeatherDisplayPanel extends JPanel implements WeatherDisplayer {
         InsetsUIResource layoutInsets = new InsetsUIResource(5, 5, 5, 5);
 
         locationHeading = new JLabel();
-        locationHeading.setFont(Fonts.heading2);
+        locationHeading.setFont(Fonts.heading1);
         add(locationHeading, new GridBagConstraints() {{
             gridx = 0;
             gridy = 0;
-            gridwidth = 1;
+            gridwidth = 2;
             anchor = GridBagConstraints.NORTH;
             insets = layoutInsets;
         }});
@@ -35,7 +35,19 @@ public class WeatherDisplayPanel extends JPanel implements WeatherDisplayer {
             gridx = 0;
             gridy = 1;
             gridwidth = 1;
-            anchor = GridBagConstraints.NORTH;
+            anchor = GridBagConstraints.NORTHEAST;
+            fill = GridBagConstraints.BOTH;
+            insets = layoutInsets;
+        }});
+
+        WindPanel windPanel = new WindPanel();
+        weatherPanelSections.add(windPanel);
+        add(windPanel, new GridBagConstraints() {{
+            gridx = 1;
+            gridy = 1;
+            gridwidth = 1;
+            anchor = GridBagConstraints.NORTHWEST;
+            fill = GridBagConstraints.VERTICAL;
             insets = layoutInsets;
         }});
 
@@ -44,7 +56,7 @@ public class WeatherDisplayPanel extends JPanel implements WeatherDisplayer {
         add(metadataBar, new GridBagConstraints() {{
             gridx = 0;
             gridy = 2;
-            gridwidth = 1;
+            gridwidth = 2;
             weighty = 1;
             anchor = GridBagConstraints.NORTH;
             insets = layoutInsets;

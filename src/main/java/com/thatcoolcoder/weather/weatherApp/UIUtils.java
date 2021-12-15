@@ -1,6 +1,7 @@
 package com.thatcoolcoder.weather.weatherApp;
 
 import javax.swing.*;
+import javax.swing.border.*;
 
 public class UIUtils
 {
@@ -21,5 +22,12 @@ public class UIUtils
             errorMessage,
             "Error",
             JOptionPane.ERROR_MESSAGE);
+    }
+
+    public static CompoundBorder createTitledBorder(String title)
+    {
+        return BorderFactory.createCompoundBorder(
+            BorderFactory.createTitledBorder(title),
+            BorderFactory.createEmptyBorder(5, 5, 5, 5));
     }
 }

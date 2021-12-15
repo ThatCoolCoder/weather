@@ -22,13 +22,13 @@ public class MetadataBar extends JPanel implements WeatherDisplayer {
         add(Box.createRigidArea(new DimensionUIResource(0, 5)));
 
         coordinates = new JLabel();
-        coordinates.setFont(Fonts.subtext);
+        coordinates.setFont(Fonts.smallText);
         add(coordinates);
         
         add(Box.createRigidArea(new DimensionUIResource(0, 5)));
 
         lastUpdated = new JLabel();
-        lastUpdated.setFont(Fonts.subtext);
+        lastUpdated.setFont(Fonts.smallText);
         add(lastUpdated);
     }
 
