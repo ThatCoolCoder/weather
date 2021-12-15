@@ -4,21 +4,21 @@ import javax.swing.*;
 
 public class UIUtils
 {
-    public static void showException(JFrame component, Exception e, String context)
+    public static void showException(JFrame component, String message)
     {
-        // context is something like "fetching weather data"
         JOptionPane.showMessageDialog(component,
-            "Unexpected error " + context + "\n" + 
-            "Details: " + e.getMessage(),
+            message,
             "Error",
             JOptionPane.ERROR_MESSAGE);
     }
 
-    public static void showException(JFrame component, String message)
+    public static void showException(JFrame component, Exception e, String context)
     {
         // context is something like "fetching weather data"
+        String errorMessage = "Unexpected error " + context + "\n" + 
+            "Details: " + e.getClass().getName() + ": " + e.getMessage();
         JOptionPane.showMessageDialog(component,
-            message,
+            errorMessage,
             "Error",
             JOptionPane.ERROR_MESSAGE);
     }

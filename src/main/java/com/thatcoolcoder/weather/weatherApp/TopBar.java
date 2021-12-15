@@ -25,9 +25,11 @@ public class TopBar extends JPanel {
         add(centerPanel, c);
 
         locationInput = new PromptTextField(25, "Enter city name");
+        locationInput.setFont(Fonts.text);
         centerPanel.add(locationInput);
 
         JButton searchButton = new JButton("Go!");
+        searchButton.setFont(Fonts.text);
         centerPanel.add(searchButton);
 
         Action searchAction = new AbstractAction()
@@ -42,6 +44,7 @@ public class TopBar extends JPanel {
         searchButton.addActionListener(searchAction);
 
         JButton settingsButton = new JButton("Settings");
+        settingsButton.setFont(Fonts.text);
         settingsButton.addActionListener(a -> {
             SettingsPopup s = new SettingsPopup();
             s.setVisible(true);

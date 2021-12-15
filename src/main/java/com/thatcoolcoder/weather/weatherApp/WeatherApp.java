@@ -8,6 +8,7 @@ import com.thatcoolcoder.weather.common.*;
 import com.thatcoolcoder.weather.weatherApi.*;
 import com.thatcoolcoder.weather.weatherApi.exceptions.*;
 import com.thatcoolcoder.weather.weatherApi.models.*;
+import com.thatcoolcoder.weather.weatherApp.weatherDisplayPanel.WeatherDisplayPanel;
 
 public class WeatherApp extends JFrame {
     private WeatherService weatherService;
@@ -19,8 +20,10 @@ public class WeatherApp extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(700, 600);
         useSystemLookAndFeel();
-        
         this.weatherService = weatherService;
+
+        setLayout(new BorderLayout());
+
         TopBar topBar = new TopBar((String location) -> showWeather(location));
         add(topBar, BorderLayout.NORTH);
         add(weatherDisplayPanel, BorderLayout.CENTER);
@@ -81,7 +84,7 @@ public class WeatherApp extends JFrame {
             Config.current.locationLastVisited = location;
             weatherService.apiKey = Config.current.weatherApiKey;
             WeatherSnapshot weatherSnapshot = weatherService.getCurrentWeather(location);
-            weatherDisplayPanel.showWeather(weatherSnapshot);
+            weatherDisplayPanel.displayWeather(weatherSnapshot);
         }
         catch (InvalidApiKeyException e)
         {

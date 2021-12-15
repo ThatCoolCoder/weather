@@ -14,6 +14,7 @@ public class Config {
     public String weatherApiKey = "";
     public String locationLastVisited = "New York";
     public boolean autoOpenLastLocation = true;
+    public boolean detailedErrorMessages = true;
 
     // Relative to home directory
     private static String configFileName = ".tccweather.json";
@@ -48,10 +49,12 @@ public class Config {
             current.weatherApiKey = json.getString("weatherApiKey");
             current.locationLastVisited = json.getString("locationLastVisited");
             current.autoOpenLastLocation = json.getBoolean("autoOpenLastLocation");
+            current.detailedErrorMessages = json.getBoolean("detailedErrorMessages");
         }
         catch (IOException | JSONException e)
         {
             // Try creating new config if the existing one doesn't exist
+            // or if it's corrupted/incompatible
             // (but maybe this will fail too due to permissions, etc so let that bubble up)
             current = new Config();
             save();
@@ -66,6 +69,7 @@ public class Config {
         json.put("weatherApiKey", current.weatherApiKey);
         json.put("locationLastVisited", current.locationLastVisited);
         json.put("autoOpenLastLocation", current.autoOpenLastLocation);
+        json.put("detailedErrorMessages", current.detailedErrorMessages);
 
         try
         {

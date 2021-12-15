@@ -1,4 +1,4 @@
-package com.thatcoolcoder.weather.weatherApp;
+package com.thatcoolcoder.weather.weatherApp.weatherDisplayPanel;
 
 import java.util.*;
 import java.util.function.*;
@@ -7,11 +7,10 @@ import javax.swing.plaf.InsetsUIResource;
 import java.awt.*;
 
 import com.thatcoolcoder.weather.weatherApi.models.*;
-import com.thatcoolcoder.weather.weatherApp.weatherDisplayPanel.*;
 
-public class WeatherDisplayPanel extends JPanel {
-    private ArrayList<PanelSection> weatherPanelSections =
-        new ArrayList<PanelSection>();
+public class WeatherDisplayPanel extends JPanel implements WeatherDisplayer {
+    private ArrayList<WeatherDisplayer> weatherPanelSections =
+        new ArrayList<WeatherDisplayer>();
 
     public WeatherDisplayPanel() {
         super();
@@ -24,12 +23,14 @@ public class WeatherDisplayPanel extends JPanel {
             gridx = 0;
             gridy = 0;
             gridwidth = 12;
+            anchor = GridBagConstraints.NORTH;
+            weighty = 1;
             insets = layoutInsets;
         }});
     }
 
-    public void showWeather(WeatherSnapshot weatherSnapshot) {
-        for (PanelSection section : weatherPanelSections)
+    public void displayWeather(WeatherSnapshot weatherSnapshot) {
+        for (WeatherDisplayer section : weatherPanelSections)
         {
             section.displayWeather(weatherSnapshot);
         }
