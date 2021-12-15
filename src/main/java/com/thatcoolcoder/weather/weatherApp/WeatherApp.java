@@ -20,14 +20,26 @@ public class WeatherApp extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(700, 600);
         useSystemLookAndFeel();
+
         this.weatherService = weatherService;
 
-        setLayout(new BorderLayout());
+        setupChildComponents();
+        setupWindowListeners();
 
-        TopBar topBar = new TopBar((String location) -> showWeather(location));
+        Actions.searchWeather.add((String location) -> showWeather(location));
+    }
+
+    private void setupChildComponents()
+    {
+
+        setLayout(new BorderLayout());
+        TopBar topBar = new TopBar();
         add(topBar, BorderLayout.NORTH);
         add(weatherDisplayPanel, BorderLayout.CENTER);
+    }
 
+    private void setupWindowListeners()
+    {
         addWindowListener(new WindowAdapter()
         {
             public void windowOpened(WindowEvent we)

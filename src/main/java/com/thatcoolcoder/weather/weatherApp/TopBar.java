@@ -11,18 +11,14 @@ import com.thatcoolcoder.weather.common.*;
 public class TopBar extends JPanel {
     JTextField locationInput;
 
-    public TopBar(Consumer<String> showWeatherAction)
+    public TopBar()
     {
         super();
 
-        setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
+        setLayout(new BorderLayout());
 
         JPanel centerPanel = new JPanel();
-        c.anchor = GridBagConstraints.CENTER;
-        c.gridx = 0;
-        c.gridy = 0;
-        add(centerPanel, c);
+        add(centerPanel, BorderLayout.CENTER);
 
         locationInput = new PromptTextField(25, "Enter city name");
         locationInput.setFont(Fonts.text);
@@ -37,7 +33,7 @@ public class TopBar extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                showWeatherAction.accept(locationInput.getText());
+                Actions.searchWeather.execute(locationInput.getText());
             }
         };
         locationInput.addActionListener(searchAction);
@@ -49,9 +45,6 @@ public class TopBar extends JPanel {
             SettingsPopup s = new SettingsPopup();
             s.setVisible(true);
         });
-        c.gridx = 1;
-        c.gridy = 0;
-        c.anchor = GridBagConstraints.EAST;
-        add(settingsButton, c);
+        add(settingsButton, BorderLayout.EAST);
     }
 }
