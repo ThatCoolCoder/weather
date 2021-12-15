@@ -1,17 +1,13 @@
 package com.thatcoolcoder.weather.weatherApp;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
-import java.awt.BorderLayout;
-import java.io.IOException;
 
 import com.thatcoolcoder.weather.common.*;
-import com.thatcoolcoder.weather.common.OS.OSType;
 import com.thatcoolcoder.weather.weatherApi.*;
-import com.thatcoolcoder.weather.weatherApi.exceptions.InvalidApiKeyException;
-import com.thatcoolcoder.weather.weatherApi.exceptions.InvalidLocationException;
-import com.thatcoolcoder.weather.weatherApi.exceptions.NoLocationProvidedException;
-import com.thatcoolcoder.weather.weatherApi.models.WeatherSnapshot;
+import com.thatcoolcoder.weather.weatherApi.exceptions.*;
+import com.thatcoolcoder.weather.weatherApi.models.*;
 
 public class WeatherApp extends JFrame {
     private WeatherService weatherService;

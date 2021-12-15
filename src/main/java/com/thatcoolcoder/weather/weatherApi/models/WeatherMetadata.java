@@ -14,7 +14,7 @@ public class WeatherMetadata {
     public ZonedDateTime dateTime;
     public ZoneId timeZone;
     public long localTimeEpoch;
-    public String name;
+    public String location;
     public String region;
     public String country;
     public float latitude;
@@ -30,7 +30,7 @@ public class WeatherMetadata {
         l.timeZone = ZoneId.of(json.getString("tz_id"));
         l.dateTime = l.localDateTime.atZone(l.timeZone);
         l.localTimeEpoch = json.getLong("localtime_epoch");
-        l.name = json.getString("name");
+        l.location = json.getString("name");
         l.region = json.getString("region");
         l.country = json.getString("country");
         l.latitude = json.getFloat("lat");

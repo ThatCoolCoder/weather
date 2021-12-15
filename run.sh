@@ -1,1 +1,1 @@
-java -cp target/weather-1.0.0-SNAPSHOT-jar-with-dependencies.jar com.thatcoolcoder.weather.weatherApp.Main
+java -jar $(find target -name "*-jar-with-dependencies.jar")
