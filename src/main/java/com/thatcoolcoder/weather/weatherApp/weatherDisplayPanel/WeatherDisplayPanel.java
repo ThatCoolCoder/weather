@@ -85,10 +85,19 @@ public class WeatherDisplayPanel extends JPanel implements WeatherDisplayer {
     }
 
     public void displayWeather(WeatherSnapshot snapshot) {
-        locationHeading.setText(String.format("Weather for %s, %s, %s",
-            snapshot.metadata.location,
-            snapshot.metadata.region,
-            snapshot.metadata.country));
+
+        // This code here removes parts of the location that are blank
+        // (this often happens with minor places)
+        ArrayList<String> locationParts = new ArrayList<String>() {{
+            add(snapshot.metadata.location);
+            add(snapshot.metadata.region);
+            add(snapshot.metadata.country);
+        }};
+        locationParts.removeIf((String s) -> s.isEmpty());
+
+        locationHeading.setText(String.format("Weather for %s",
+            String.join(", ", locationParts)));
+
         for (WeatherDisplayer section : weatherPanelSections)
         {
             section.displayWeather(snapshot);
