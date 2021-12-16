@@ -29,11 +29,21 @@ public class WeatherDisplayPanel extends JPanel implements WeatherDisplayer {
             insets = layoutInsets;
         }});
 
+        MetadataBar metadataBar = new MetadataBar();
+        weatherPanelSections.add(metadataBar);
+        add(metadataBar, new GridBagConstraints() {{
+            gridx = 0;
+            gridy = 1;
+            gridwidth = 2;
+            anchor = GridBagConstraints.NORTH;
+            insets = layoutInsets;
+        }});
+
         SummaryPanel summaryPanel = new SummaryPanel();
         weatherPanelSections.add(summaryPanel);
         add(summaryPanel, new GridBagConstraints() {{
             gridx = 0;
-            gridy = 1;
+            gridy = 2;
             gridwidth = 1;
             anchor = GridBagConstraints.NORTHEAST;
             fill = GridBagConstraints.BOTH;
@@ -44,21 +54,32 @@ public class WeatherDisplayPanel extends JPanel implements WeatherDisplayer {
         weatherPanelSections.add(windPanel);
         add(windPanel, new GridBagConstraints() {{
             gridx = 1;
-            gridy = 1;
+            gridy = 2;
             gridwidth = 1;
             anchor = GridBagConstraints.NORTHWEST;
-            fill = GridBagConstraints.VERTICAL;
+            fill = GridBagConstraints.BOTH;
             insets = layoutInsets;
         }});
 
-        MetadataBar metadataBar = new MetadataBar();
-        weatherPanelSections.add(metadataBar);
-        add(metadataBar, new GridBagConstraints() {{
+        AtmospherePrecipitationPanel atmospherePrecipitationPanel =
+            new AtmospherePrecipitationPanel();
+        weatherPanelSections.add(atmospherePrecipitationPanel);
+        add(atmospherePrecipitationPanel, new GridBagConstraints() {{
             gridx = 0;
-            gridy = 2;
+            gridy = 3;
             gridwidth = 2;
+            anchor = GridBagConstraints.NORTHWEST;
+            fill = GridBagConstraints.HORIZONTAL;
+            insets = layoutInsets;
+        }});
+
+        add(new JPanel(), new GridBagConstraints() {{
+            gridx = 0;
+            gridy = 4;
+            gridwidth = 2;
+            anchor = GridBagConstraints.NORTHWEST;
+            fill = GridBagConstraints.BOTH;
             weighty = 1;
-            anchor = GridBagConstraints.NORTH;
             insets = layoutInsets;
         }});
     }

@@ -17,6 +17,7 @@ public class WeatherApp extends JFrame {
     public WeatherApp(WeatherService weatherService)
     {
         super("Weather by ThatCoolCoder");
+        setLocationByPlatform(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(700, 600);
         useSystemLookAndFeel();

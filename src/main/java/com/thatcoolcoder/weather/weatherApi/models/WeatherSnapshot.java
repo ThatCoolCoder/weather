@@ -19,7 +19,7 @@ public class WeatherSnapshot {
     public int visibility;
     public float cloudCover; // 0 to 1
     public int precipitationAmount;
-    public int humidity;
+    public float humidity; // 0 to 1
     public int airPressure;
 
     public WeatherMetadata metadata;
@@ -61,7 +61,7 @@ public class WeatherSnapshot {
         w.visibility = json.getInt("vis_km");
         w.cloudCover = json.getFloat("cloud") / 100;
         w.precipitationAmount = json.getInt("precip_mm");
-        w.humidity = json.getInt("humidity");
+        w.humidity = json.getFloat("humidity") / 100;
         w.airPressure = json.getInt("pressure_mb");
         return w;
     }
