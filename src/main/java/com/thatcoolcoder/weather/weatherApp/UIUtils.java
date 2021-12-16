@@ -22,6 +22,7 @@ public class UIUtils
             errorMessage,
             "Error",
             JOptionPane.ERROR_MESSAGE);
+        if (Config.current.detailedErrorMessages) e.printStackTrace();
     }
 
     public static CompoundBorder createTitledBorder(String title)

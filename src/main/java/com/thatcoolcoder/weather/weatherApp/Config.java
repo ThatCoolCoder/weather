@@ -11,6 +11,8 @@ import org.json.*;
 public class Config {
     public static Config current = null;
 
+    // These are the actual config fields - everything else in this class is static stuff
+    // for loading and saving
     public String weatherApiKey = "";
     public String locationLastVisited = "New York";
     public boolean autoOpenLastLocation = true;

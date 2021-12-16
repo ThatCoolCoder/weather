@@ -1,6 +1,8 @@
 package com.thatcoolcoder.weather.weatherApp;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -36,7 +38,12 @@ public class WeatherApp extends JFrame {
         setLayout(new BorderLayout());
         TopBar topBar = new TopBar();
         add(topBar, BorderLayout.NORTH);
+        
+        WeatherApiLink weatherApiLink = new WeatherApiLink();
+        add(weatherApiLink, BorderLayout.SOUTH);
+
         add(weatherDisplayPanel, BorderLayout.CENTER);
+        weatherDisplayPanel.setVisible(false);
     }
 
     private void setupWindowListeners()
@@ -97,6 +104,7 @@ public class WeatherApp extends JFrame {
             Config.current.locationLastVisited = location;
             weatherService.apiKey = Config.current.weatherApiKey;
             WeatherSnapshot weatherSnapshot = weatherService.getCurrentWeather(location);
+            weatherDisplayPanel.setVisible(true);
             weatherDisplayPanel.displayWeather(weatherSnapshot);
         }
         catch (InvalidApiKeyException e)

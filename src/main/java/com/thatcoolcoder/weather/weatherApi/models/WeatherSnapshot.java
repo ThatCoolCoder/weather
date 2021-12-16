@@ -39,7 +39,7 @@ public class WeatherSnapshot {
         put("SW", 225f);
         put("WSW", 247.5f);
         put("W", 270f);
-        put("NWN", 292.5f);
+        put("WNW", 292.5f);
         put("NW", 315f);
         put("NNW", 337.f);
     }};
