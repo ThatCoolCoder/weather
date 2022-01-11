@@ -22,6 +22,7 @@ public class WeatherApp extends JFrame {
         setLocationByPlatform(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(700, 600);
+        setIconImage(new ImageIcon(ClassLoader.getSystemResource("icon.png")).getImage());
         useSystemLookAndFeel();
 
         this.weatherService = weatherService;

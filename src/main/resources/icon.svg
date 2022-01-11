@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="50mm"
+   height="50mm"
+   viewBox="0 0 50 50"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20, custom)"
+   sodipodi:docname="icon_v2.svg"
+   inkscape:export-filename="/home/thatcoolcoder/coding/weather/src/main/resources/icon.png"
+   inkscape:export-xdpi="32.512001"
+   inkscape:export-ydpi="32.512001"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:snap-page="true"
+     inkscape:snap-global="true"
+     inkscape:snap-bbox="true"
+     inkscape:zoom="4"
+     inkscape:cx="55.375"
+     inkscape:cy="113.5"
+     inkscape:window-width="2560"
+     inkscape:window-height="1365"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:snap-smooth-nodes="true" />
+  <defs
+     id="defs2">
+    <rect
+       x="0"
+       y="0"
+       width="188.97638"
+       height="188.97638"
+       id="rect94341" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect86515"
+       is_visible="true"
+       lpeversion="1"
+       pattern="M 5.1018669,-1.2689744 V 0.39383669"
+       copytype="repeated_stretched"
+       prop_scale="3.4"
+       scale_y_rel="false"
+       spacing="11.4"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       hide_knot="false"
+       fuse_tolerance="0" />
+    <inkscape:path-effect
+       effect="skeletal"
+       id="path-effect86348"
+       is_visible="true"
+       lpeversion="1"
+       pattern="M 0,0 H 1"
+       copytype="single_stretched"
+       prop_scale="1"
+       scale_y_rel="false"
+       spacing="0"
+       normal_offset="0"
+       tang_offset="0"
+       prop_units="false"
+       vertical_pattern="false"
+       hide_knot="false"
+       fuse_tolerance="0" />
+    <rect
+       x="16.682105"
+       y="19.813748"
+       width="94.421681"
+       height="62.871817"
+       id="rect14948" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path81674"
+       style="fill:#e9d314;stroke:#e8a910;stroke-width:3.175;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;fill-opacity:1"
+       d="M 39.66715,25.000001 A 14.667148,14.667146 0 0 1 25.000002,39.667147 14.667148,14.667146 0 0 1 10.332855,25.000001 14.667148,14.667146 0 0 1 25.000002,10.332855 14.667148,14.667146 0 0 1 39.66715,25.000001 Z"
+       inkscape:export-filename="/home/thatcoolcoder/coding/weather/src/main/resources/path81674.png"
+       inkscape:export-xdpi="32.512001"
+       inkscape:export-ydpi="32.512001" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#e8a910;stroke-width:3.175;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path86411"
+       inkscape:path-effect="#path-effect86515"
+       sodipodi:type="arc"
+       sodipodi:cx="24.997549"
+       sodipodi:cy="25"
+       sodipodi:rx="21.79109"
+       sodipodi:ry="21.79109"
+       d="M 49.615418,25 H 43.96186 m 2.112187,12.177748 -4.798888,-2.914371 m -4.099875,11.813129 -2.914368,-4.79889 m -9.263376,8.340243 v -5.653555 m -12.177752,2.112187 2.914374,-4.798887 M 3.9210349,37.177722 8.7199265,34.263357 M 0.37969983,24.999983 H 6.033253 M 3.9210664,12.822226 8.7199514,15.736602 M 12.81984,3.923478 15.734202,8.7223712 m 9.263394,-8.34023945 -1.2e-5,5.65355645 m 12.177752,-2.112163 -2.914379,4.7988833 m 11.813122,4.0998955 -4.798895,2.914359" />
+  </g>
+</svg>

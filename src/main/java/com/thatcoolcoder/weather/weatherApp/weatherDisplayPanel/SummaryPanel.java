@@ -65,7 +65,7 @@ public class SummaryPanel extends JPanel implements WeatherDisplayer {
     public void displayWeather(WeatherSnapshot snapshot) {
         try
         {
-            conditionIcon.setIcon(new ImageIcon(new URL(snapshot.conditionIconUrl), "test"));
+            conditionIcon.setIcon(new ImageIcon(new URL(snapshot.conditionIconUrl)));
         }
         catch (Exception e) {}
         condition.setText(snapshot.condition);
