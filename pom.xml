@@ -6,7 +6,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
     <groupId>com.thatcoolcoder.weather</groupId>
     <artifactId>weather</artifactId>
-    <version>1.1.0-SNAPSHOT</version>
+    <version>1.1.1</version>
 
     <name>weather</name>
     <url>https://www.naltonsoftware.com</url>
