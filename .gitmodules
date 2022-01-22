@@ -1,0 +1,4 @@
+[submodule "tinyinstallj"]
+	path = tinyinstallj
+	url = https://github.com/ThatCoolCoder/tinyinstallj
+	branch = v1

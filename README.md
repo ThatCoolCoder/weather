@@ -2,6 +2,8 @@
 
 A small weather program to learn to use Java with Maven.
 
+This project has submodules so when pulling and cloning use the `--recurse-submodules` flag.
+
 ## Conventions
 
 Units used:
@@ -33,4 +35,8 @@ There's not much to say here except that it handles displaying the GUI and some 
 
 ## Creating a release
 
-Currently there's no installer generator for this, so generating a release is quite simple. Remember to update the version number in `pom.xml` and then in the utility scripts so then can find the new `.jar`s. The new number should use semantic versioning and should not include `SNAPSHOT` (this indicates that the project is heavily in development). Upload `target/weather-{VERSION}-jar-with-dependencies.jar` to GitHub releases and rename it to `weather-{VERSION}.jar`. When getting back to development after the release, change `pom.xml` to indicate that the program is once again a `SNAPSHOT`.
+Remember to update the version number in `pom.xml` and then in the utility scripts so then can find the new `.jar`s. The new number should use semantic versioning and should not include `SNAPSHOT` (this indicates that the project is heavily in development). Upload `target/weather-{VERSION}-jar-with-dependencies.jar` to GitHub releases and rename it to `weather-{VERSION}.jar`.
+
+Then create installers. Update `tinyinstallj.json` to have the correct data (main thing you need to update is the URL of the release). Currently we only create Windows & Linux installers so for each of those OSes, run `python tinyinstallj/create-installer.py` and upload the output to the release. Call the Windows installer `weather-installer-win.exe` and the Linux installer `weather-installer-linux` (no file extension). For more info on tinyinstallj, go to [https://github.com/ThatCoolCoder/tinyinstallj](https://github.com/ThatCoolCoder/tinyinstallj).
+
+When getting back to development after the release, change `pom.xml` to indicate that the program is once again a `SNAPSHOT`.
